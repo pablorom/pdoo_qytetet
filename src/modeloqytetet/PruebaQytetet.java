@@ -15,6 +15,27 @@ public class PruebaQytetet {
     
     private static Qytetet juego = Qytetet.getInstance(); //se inicializa tablero y sus casillas
     
+    //Practica 2: Metodo para leer numero de jugadores y sus nombres
+    private static final Scanner in = new Scanner(System.in);
+    
+    static ArrayList<String> getNombreJugadores(){
+        ArrayList<String> lista_nombres = new ArrayList();
+        int num_jugadores = 0;
+        String nom = "";
+        
+        System.out.println("Introduzca el numero de jugadores");
+        num_jugadores = in.nextInt();
+        in.nextLine();
+        //Pregunta los nombres de los num_jugadores
+        for(int i=0; i<num_jugadores; i++){
+            System.out.println("Introduzca el nombre de Jugador"+i+": ");
+            nom = in.nextLine();
+            lista_nombres.add(nom);
+        }
+        
+        return lista_nombres;
+    }
+    
     private static ArrayList<Sorpresa> sorpresasPositivas(){
         ArrayList<Sorpresa> mazoPositivo = new ArrayList();
         for(Sorpresa s: juego.getMazo())
@@ -57,6 +78,11 @@ public class PruebaQytetet {
         */
         System.out.println("CASILLAS -----------");
         System.out.println(juego.getTablero().toString());
+        
+        //Pedimos numero de jugadores y nombres
+        getNombreJugadores();
+        
+        
     }
     
 }
