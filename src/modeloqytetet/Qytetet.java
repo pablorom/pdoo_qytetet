@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modeloqytetet;
 
 import java.util.*;
@@ -66,6 +61,7 @@ public class Qytetet {
     }
     
     //Practica 2. Metodos del diagrama clases
+    /*
     void actuarSiEnCasillaEdificable(){}
     void actuarSiEnCasillaNoEdificable(){}
     public void aplicarSorpresa(){}
@@ -74,7 +70,7 @@ public class Qytetet {
     public boolean edificarCasa(int numeroCasilla){return false;}
     public boolean edificarHotel(int numeroCasilla){return false;}
     private void encarcelarJugador(){}
-    
+    */
     public Sorpresa getCartaActual(){
         return carta_actual;
     }
@@ -125,13 +121,11 @@ public class Qytetet {
 
         return libre;
     }
-    */
     
     public void jugar(){}
     
     void mover(int numCasillaDestino){}
     
-    /*
     public Casilla obtenerCasillaJugadorActual(){}
     
     public ArraryList<Casilla> obtenerCasillasTablero(){}
@@ -139,9 +133,9 @@ public class Qytetet {
     public int obtenerPropiedadesJugador(){}
     
     public int obtenerPropiedadesJugadorSegunEstadoHipoteca(boolean estadoHipoteca){}
-    */
+    
     public void obtenerRanking(){}
-    /*
+
     public int obtenerSaldoJugadorActual(){}
     
     private void salidaJugadores() {        
@@ -158,9 +152,9 @@ public class Qytetet {
     private void setCartaActual(Sorpresa carta){
         carta_actual = carta;
     }
-    
-    public void siguienteJugador(){}
     /*
+    public void siguienteJugador(){}
+    
     int tirarDado(){}
     
     public boolean venderPropiedad(int numero_casilla){}
