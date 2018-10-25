@@ -7,17 +7,17 @@ package modeloqytetet;
 
 /**
  *
- * @author Pablo
+ * @author Pablo Robles
  */
 public class Sorpresa {
     private String texto;
     private TipoSorpresa tipo;
     private int valor;
     
-    public Sorpresa(String nuevoTexto, int nuevoValor, TipoSorpresa nuevoTipo){
-        texto=nuevoTexto;
-        valor=nuevoValor;
-        tipo=nuevoTipo;
+    Sorpresa(String nuevoTexto, int nuevoValor, TipoSorpresa nuevoTipo){
+        this.texto=nuevoTexto;
+        this.valor=nuevoValor;
+        this.tipo=nuevoTipo;
     }
     
     String getTexto(){

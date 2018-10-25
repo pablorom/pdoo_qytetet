@@ -7,16 +7,17 @@ package modeloqytetet;
 
 /**
  *
- * @author Pablo
+ * @author Pablo Robles
  */
 public class Casilla {
     private int numeroCasilla;
     private int coste;
-    private TipoCasilla tipo;
-    private TituloPropiedad titulo;
+    private TipoCasilla tipo;//Si es CALLE tendrá asociado un TituloPropiedad
+    private TituloPropiedad titulo;// por la relacion con TituloPropiedad
     
     //casilla tipo calle
-    public Casilla(int numeroCasilla, TipoCasilla tipo, TituloPropiedad titulo){
+    // No es esencial incluir TipoCasilla en este constructor puesto que siempre será CALLE
+    Casilla(int numeroCasilla, TipoCasilla tipo, TituloPropiedad titulo){
         this.numeroCasilla = numeroCasilla;
         this.tipo = tipo;
         this.coste = titulo.getPrecioCompra();
@@ -24,7 +25,7 @@ public class Casilla {
     }
     
     //casilla de otro tipo
-    public Casilla(int numeroCasilla, TipoCasilla tipo){
+    Casilla(int numeroCasilla, TipoCasilla tipo){
         this.numeroCasilla = numeroCasilla;
         this.tipo = tipo;
         this.coste = 0;
@@ -55,4 +56,16 @@ public class Casilla {
                 "\n Tipo de casilla: " + tipo + "\n";
     }
     
+    //Metodos Practica 2 diagrama clases
+    /*
+    TituloPropiedad asignarPropietario(Jugador jugador){}
+    
+    int pagarAlquiler(){}
+    
+    boolean propietarioEncarcelado(){}
+    
+    boolean soyEdificable(){}
+    
+    boolean tengoPropietario(){}
+    */
 }

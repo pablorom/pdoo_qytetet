@@ -7,10 +7,10 @@ import java.util.ArrayList;
  * @author Pablo Robles 
  */
 public class Tablero {
-    private ArrayList<Casilla> casillas;
-    private Casilla carcel;
+    private ArrayList<Casilla> casillas;// por la relacion con casilla
+    private Casilla carcel;// por la relacion con casilla
     
-    public Tablero(){
+    Tablero(){
         inicializar();
     }
     
@@ -96,5 +96,18 @@ public class Tablero {
         casillas.add(C19);
         //Inicializamos carcel a casilla 9
         carcel = C9;
+    }
+    
+    //Metodos Practica 2 diagrama clases
+    boolean esCasillaCarcel(int numeroCasilla) {
+        return carcel.getNumeroCasilla() == numeroCasilla;
+    }
+    
+    Casilla obtenerCasillaFinal(Casilla casilla, int desplazamiento) {
+        return casillas.get(casilla.getNumeroCasilla()+desplazamiento);
+    }
+    
+    Casilla obtenerCasillaNumero(int numeroCasilla) {
+        return casillas.get(numeroCasilla);
     }
 }

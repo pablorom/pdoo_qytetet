@@ -8,7 +8,7 @@ package modeloqytetet;
 import java.util.*;
 /**
  *
- * @author Pablo
+ * @author Pablo Robles
  */
 public class Dado {
     private static final Dado dado = new Dado();

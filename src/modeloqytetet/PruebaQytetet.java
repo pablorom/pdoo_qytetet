@@ -9,7 +9,7 @@ import java.util.*;
 
 /**
  *
- * @author Pablo
+ * @author Pablo Robles
  */
 public class PruebaQytetet {
     
@@ -28,7 +28,7 @@ public class PruebaQytetet {
         in.nextLine();
         //Pregunta los nombres de los num_jugadores
         for(int i=0; i<num_jugadores; i++){
-            System.out.println("Introduzca el nombre de Jugador"+i+": ");
+            System.out.println("Introduzca el nombre de Jugador"+(i+1)+": ");
             nom = in.nextLine();
             lista_nombres.add(nom);
         }
@@ -80,8 +80,20 @@ public class PruebaQytetet {
         System.out.println(juego.getTablero().toString());
         
         //Pedimos numero de jugadores y nombres
-        getNombreJugadores();
+        ArrayList<String> nombres = new ArrayList();
         
+        nombres = getNombreJugadores();
+        
+        System.out.println("Nombres de los jugadores ----------");
+        for(String n: nombres){
+            System.out.println(n); 
+        } 
+        juego.inicializarJugadores(nombres);
+        
+        System.out.println("Info de los jugadores ----------"); 
+        for(Jugador j: juego.getJugadores()){
+            System.out.println(j.toString()); 
+        }
         
     }
     

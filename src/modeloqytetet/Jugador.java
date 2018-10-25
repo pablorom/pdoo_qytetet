@@ -7,13 +7,13 @@ import java.util.*;
 public class Jugador {
   private boolean encarcelado = false;
   protected int saldo = 7500;
-  protected Sorpresa cartaLibertad;
-  protected Casilla casillaActual;
-  protected final ArrayList<TituloPropiedad> propiedades;
+  protected Sorpresa cartaLibertad;//por la relacion con sorpresa
+  protected Casilla casillaActual = new Casilla(0, TipoCasilla.SALIDA);//por la relacion con casilla 
+  protected final ArrayList<TituloPropiedad> propiedades;// por la relación con TituloPropiedad
   private final String nombre;
   
   //Constructor con nombre
-  public Jugador(String nombre) {
+  Jugador(String nombre) {
     this.nombre = nombre;
     propiedades = new ArrayList<>();
   }
@@ -26,27 +26,7 @@ public class Jugador {
     cartaLibertad = jugador.cartaLibertad;
     casillaActual = jugador.casillaActual;
   }
-  //getter
-  public Sorpresa getCartaLibertad() {
-    return cartaLibertad;
-  }
-  
-  public Casilla getCasillaActual() {
-    return casillaActual;
-  }
-
-  public boolean getEncarcelado() {
-    return encarcelado;
-  }
-
-  public String getNombre() {
-    return nombre;
-  }
-  
-  public int getSaldo() {
-    return saldo;
-  }
-
+ 
   public ArrayList<TituloPropiedad> getPropiedades() {
     return propiedades;
   } 
@@ -71,42 +51,56 @@ public class Jugador {
     return saldo <= 0;
   }
 
+  //Metodos Practica 2 diagrama clases
+  /*
+  boolean cancelarHipoteca(TituloPropiedad titulo){}
+  
   boolean comprarTituloPropiedad(){}
-
+  
+  int cuantasCasasHotelesTengo() {}
+  
+  boolean deboPagarAlquiler(){}
+  */
   Sorpresa devolverCartaLibertad() {
     Sorpresa c = cartaLibertad;
     cartaLibertad = null;
     return c;
   }
+  /*
+  boolean edificarCasa(TituloPropiedad titulo){}
   
-  void pagarCobrarPorCasaYHotel(int cantidad) {
-    modificarSaldo(cantidad * cuantasCasasHotelesTengo());
-  }
-
-  boolean puedoEdificarCasa(Calle casilla) {
-    return esDeMiPropiedad(casilla) && tengoSaldo(casilla.getPrecioEdificar());
-  }
-
-  boolean puedoEdificarHotel(Calle casilla) {
-    return esDeMiPropiedad(casilla) && tengoSaldo(casilla.getPrecioEdificar());
-  }
-
-  boolean puedoHipotecar(Calle casilla) {
-    return esDeMiPropiedad(casilla);
-  }
-
-  boolean puedoVenderPropiedad(Calle casilla) {
-    return !casilla.estaHipotecada() && esDeMiPropiedad(casilla);
-  }
- 
-  int cuantasCasasHotelesTengo() {}
-
+  boolean edificarHotel(TituloPropiedad titulo){}
+  
   void eliminarDeMisPropiedades(TituloPropiedad titulo) {}
 
   boolean esDeMiPropiedad(TituloPropiedad titulo) {}
   
-  //Metodos Practica 2 diagrama clases
-  boolean hipotecarPropiedad(Titulo titulo_propiedad){}
+  boolean estoyEnCalleLibre(){}
+  */
+  //getter
+  public Sorpresa getCartaLibertad() {
+    return cartaLibertad;
+  }
+  
+  public Casilla getCasillaActual() {
+    return casillaActual;
+  }
+
+  public boolean getEncarcelado() {
+    return encarcelado;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+  
+  //public TituloPropiedad getPropiedades(){}
+  
+  public int getSaldo() {
+    return saldo;
+  }
+  
+  //boolean hipotecarPropiedad(Titulo titulo_propiedad){}
   
   void irACarcel(Casilla casilla) {
     encarcelado = true;
@@ -116,11 +110,11 @@ public class Jugador {
   void modificarSaldo(int cantidad) {
     saldo += cantidad;
   }
-  
+  /*
   int obtenerCapital() {}
   
   ArrayList<TituloPropiedad> obtenerPropiedades(boolean hipotecada) {}
-
+  */
   protected void pagarAlquiler(int cantidad) {
     modificarSaldo(-cantidad);
   }
@@ -146,7 +140,7 @@ public class Jugador {
     return saldo >= cantidad;
   }
   
-  void venderPropiedad(Calle casilla) {}
+  void venderPropiedad(Casilla casilla) {}
 
   @Override
   public String toString() {
@@ -155,9 +149,9 @@ public class Jugador {
 
   protected String crearStringAtributos() {
     return String.format("Nombre: %s\n", nombre) + String.format("Saldo %d\n", saldo)
-        + String.format("Carta libertad?: %b\n", cartaLibertad != null)
-        + String.format("Encarcelado?: %b\n", encarcelado)
-        + String.format("Casilla actual: %d\n", casillaActual.numeroCasilla)
+        + String.format("¿Carta libertad?: %b\n", cartaLibertad != null)
+        + String.format("¿Encarcelado?: %b\n", encarcelado)
+        + String.format("Casilla actual: %d\n", casillaActual.getNumeroCasilla())
         + String.format("Propiedades:\n%s",
               propiedades.stream()
                 .map(TituloPropiedad::toString)
